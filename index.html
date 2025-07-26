@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raj Shekhar Sharma - Astronomy Enthusiast</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(ellipse at bottom, #000015 0%, #000000 100%);
+  color: #00ffc8;
+  overflow-x: hidden;
+}
+@keyframes twinkle {
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0.5;}
+}
+#starfield {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out;
+}
+h1, h2, h3 {
+  color: #00ffc8;
+  text-align: center;
+  text-shadow: 0 0 8px #00ffc8, 0 0 16px #00ffc8, 0 0 20px #00ffc8;
+}
+h1 {
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 2.8rem;
+}
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+section {
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  padding: 20px;
+  background: rgba(0, 15, 25, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffc8;
+  z-index: 1;
+  position: relative;
+}
+p, ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+ul {
+  padding-left: 1.3rem;
+  list-style-type: none;
+}
+ul li::before {
+  content: "\2022";
+  color: #00ffc8;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+img.rounded {
+  max-width: 280px;
+  width: 100%;
+  display: block;
+  margin: 10px auto;
+  border-radius: 25px;
+  box-shadow: 0 0 15px #00ffc8;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffc8;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+input, textarea {
+  background: #001522;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  color: #00ffc8;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 0 8px #00ffc8;
+}
+input::placeholder, textarea::placeholder {
+  color: #00ffc8;
+  opacity: 0.7;
+}
+button {
+  background: #00ffc8;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffc8;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #008071;
+}
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  section {
+    margin: 1rem 15px 2rem 15px;
+    padding: 15px;
+  }
+  img.rounded {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<div id="starfield"></div>
+<header>
+  <h1>Raj Shekhar Sharma</h1>
+  <p style="text-align:center; font-size:1.2rem; color:#008071;">15-year-old Astronomy and Space Science Enthusiast</p>
+</header>
+<section id="about-me">
+  <h2>About Me</h2>
+  <div style="max-width:400px; margin: 0 auto;">
+     <img 
+  src="https://i.postimg.cc/nL36W3g0/Untitled-2.png" 
+  alt="Raj's Space Selfie" 
+  style="width: 300px; border: 2px solid #66fcf1; border-radius: 10px;">
+  </div>
+  <p>My name is Raj Shekhar Sharma, a 15-year-old from Jalandhar, Punjab, India. I am passionate about astronomy and space science, always eager to learn more about the mysteries of the universe.</p>
+</section>
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>Sent a personal message 332 billion km into deep space via Haystack Observatory, MIT (Spacespeak project)</li>
+    <li>Sent my name to Mars with NASA's Mars mission</li>
+    <li>Sent my selfie to space using the CrunchLabs SpaceSelfie project</li>
+    <li>Participated in over 30 missions as a NASA Virtual Guest</li>
+    <li>Recognized as an India Book of Records (IBR) achiever for innovation</li>
+  </ul>
+  <img src="https://i.postimg.cc/kg4ZbQBS/IMG-20250715-WA0019.jpg"
+    alt="Raj's CrunchLabs Space Selfie Certificate"
+    style="width: 300px; border: 2px solid #66fcf1; border-radius: 10px; display: block; margin: 15px auto;" />
+</section>
+<section id="video">
+  <h2>Video</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/FJRIObJnih0?si=X2jK3990na8keD9b" title="Raj Shekhar Sharma YouTube" allowfullscreen></iframe>
+  </div>
+</section>
+<section id="contact">
+  <h2>Contact</h2>
+  <form action="mailto:raj.shekhar@example.com" method="POST" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+<script>
+// Starfield animation
+const starCount = 100;
+const starfield = document.getElementById('starfield');
+for(let i=0; i < starCount; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  const size = Math.random() * 2 + 1;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.animationDelay = (Math.random() * 2) + 's';
+  star.style.animationDuration = (1 + Math.random() * 3) + 's';
+  starfield.appendChild(star);
+}
+</script>
+</body>
+</html>
