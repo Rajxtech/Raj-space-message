@@ -155,9 +155,95 @@ button:hover {
   }
 }
 </style>
+  <style>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* so sections are not hidden under the nav */
+}
+
+/* Avoid body content hiding under fixed nav if you already use fixed header */
+body {
+  margin: 0;
+}
+
+/* Top navigation bar */
+.top-nav {
+  position: sticky; /* sticks to top while scrolling; use fixed if you want always-on-top */
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid #00ff88; /* neon/dark green line – align with your theme */
+  backdrop-filter: blur(6px);
+}
+
+/* Left side title */
+.top-nav .nav-title {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #00ff88;
+}
+
+/* Right-side links */
+.top-nav .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-nav .nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #e0ffe9;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect in your “sci-fi” green style */
+.top-nav .nav-links a:hover {
+  border-color: #00ff88;
+  background: rgba(0, 255, 136, 0.08);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .top-nav .nav-links {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .top-nav .nav-links a {
+    padding: 5px 10px;
+  }
+}
+  </style>
 </head>
 <body>
-  
+ <nav class="top-nav">
+  <div class="nav-title">Raj's Space Message</div>
+  <div class="nav-links">
+    <a href="#about-me">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#proof-of-space-message">Space Message Proof</a>
+    <a href="#newspaper-publications">Newspaper</a>
+    <a href="#research-publication">Research</a>
+    <a href="#award-moments">Awards</a>
+    <a href="#contact">Contact</a>
+  </div>
+ </nav> 
 <div id="starfield"></div>
 <header>
   <h1>Raj Shekhar Sharma</h1>
