@@ -725,65 +725,39 @@
 
     const baseMiles = 3560334868839;
     const baseKm = 5738494145156;
-    const speedOfLightKmPerSecond = 299792.458;
-    const speedOfLightMilesPerSecond = 186282.397;
-    const stepKm = 1_000_000;
-    const stepMiles = 1_000_000;
+    const launchDays = 221;
+    const secondsSinceLaunch = launchDays * 24 * 60 * 60;
+    const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
+    const speedKmPerSecond = baseKm / secondsSinceLaunch;
 
     let targetMiles = baseMiles;
     let targetKm = baseKm;
     let displayMiles = baseMiles;
     let displayKm = baseKm;
-    let kmAccumulator = 0;
-    let milesAccumulator = 0;
-    let lastFrameTime = performance.now();
-    let lastMilesText = '';
-    let lastKmText = '';
 
     const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
 
-    const tickCounter = (now) => {
-      const deltaSeconds = Math.min((now - lastFrameTime) / 1000, 0.25);
-      lastFrameTime = now;
+    const pushSecondUpdate = () => {
+      targetMiles += speedMilesPerSecond;
+      targetKm += speedKmPerSecond;
+    };
 
-      kmAccumulator += speedOfLightKmPerSecond * deltaSeconds;
-      milesAccumulator += speedOfLightMilesPerSecond * deltaSeconds;
-
-      while (kmAccumulator >= stepKm) {
-        targetKm += stepKm;
-        kmAccumulator -= stepKm;
-      }
-
-      while (milesAccumulator >= stepMiles) {
-        targetMiles += stepMiles;
-        milesAccumulator -= stepMiles;
-      }
-
-      const easing = 1 - Math.exp(-3.2 * deltaSeconds);
-      displayMiles += (targetMiles - displayMiles) * easing;
-      displayKm += (targetKm - displayKm) * easing;
-
-      if (Math.abs(targetMiles - displayMiles) < 1) displayMiles = targetMiles;
-      if (Math.abs(targetKm - displayKm) < 1) displayKm = targetKm;
+    const tickCounter = () => {
+      displayMiles += (targetMiles - displayMiles) * 0.16;
+      displayKm += (targetKm - displayKm) * 0.16;
 
       const milesText = formatDistance(displayMiles, 'miles');
       const kmText = formatDistance(displayKm, 'km');
 
-      if (milesText !== lastMilesText) {
-        lastMilesText = milesText;
-        if (distanceMilesEl) distanceMilesEl.textContent = milesText;
-        if (missionMilesEl) missionMilesEl.textContent = milesText;
-      }
-
-      if (kmText !== lastKmText) {
-        lastKmText = kmText;
-        if (distanceKmEl) distanceKmEl.textContent = kmText;
-        if (missionKmEl) missionKmEl.textContent = kmText;
-      }
+      if (distanceMilesEl) distanceMilesEl.textContent = milesText;
+      if (distanceKmEl) distanceKmEl.textContent = kmText;
+      if (missionMilesEl) missionMilesEl.textContent = milesText;
+      if (missionKmEl) missionKmEl.textContent = kmText;
 
       requestAnimationFrame(tickCounter);
     };
 
+    setInterval(pushSecondUpdate, 1000);
     requestAnimationFrame(tickCounter);
 
   </script>
