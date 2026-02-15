@@ -279,7 +279,191 @@
       transform: translateY(0);
     }
 
+
+
+    .tracker-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(11, 116, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 0%, rgba(0, 255, 200, 0.16), transparent 40%),
+        rgba(5, 10, 24, 0.88);
+    }
+
+    .tracker-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .tracker-particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: rgba(202, 235, 255, 0.85);
+      box-shadow: 0 0 10px rgba(174, 239, 255, 0.7);
+      animation: trackerDrift linear infinite;
+    }
+
+    @keyframes trackerDrift {
+      from { transform: translate3d(0, 0, 0); opacity: 0.15; }
+      40% { opacity: 0.7; }
+      to { transform: translate3d(-20px, -120px, 0); opacity: 0; }
+    }
+
+    .tracker-content { position: relative; z-index: 1; }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(0, 255, 200, 0.4);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: #bcffef;
+      background: rgba(3, 18, 33, 0.74);
+      margin-bottom: 1rem;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #00ffc8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.8);
+      animation: pulseDot 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.65); opacity: 0.6; }
+    }
+
+    .tracker-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .distance-shell {
+      border: 1px solid rgba(0, 255, 200, 0.28);
+      border-radius: 18px;
+      background: linear-gradient(165deg, rgba(7, 18, 40, 0.92), rgba(8, 16, 31, 0.78));
+      padding: clamp(1rem, 2.6vw, 1.7rem);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .distance-shell::before,
+    .distance-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 255, 200, 0.22);
+      width: 220px;
+      height: 220px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .distance-shell::before {
+      top: -90px;
+      right: -65px;
+      animation: orbitSpin 14s linear infinite;
+    }
+
+    .distance-shell::after {
+      bottom: -110px;
+      left: -95px;
+      border-color: rgba(11, 116, 255, 0.25);
+      animation: orbitSpinReverse 18s linear infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes orbitSpinReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .live-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .distance-value {
+      margin: 0;
+      font-family: "Orbitron", sans-serif;
+      color: #e9f6ff;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.15rem, 2.3vw, 1.8rem);
+      text-shadow: 0 0 14px rgba(11, 116, 255, 0.3);
+    }
+
+    .distance-value + .distance-value {
+      margin-top: 0.8rem;
+      color: #c7fff3;
+    }
+
+    .distance-caption {
+      color: var(--muted);
+      margin-top: 0.7rem;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .mission-card {
+      background: rgba(7, 16, 32, 0.88);
+      border: 1px solid rgba(0, 255, 200, 0.22);
+      border-radius: 12px;
+      padding: 0.8rem;
+    }
+
+    .mission-card small {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    .mission-card p {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #e7f6ff;
+      font-size: 0.96rem;
+    }
+
+    @media (max-width: 960px) {
+      .tracker-main { grid-template-columns: 1fr; }
+      .mission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 760px) {
+      .mission-grid { grid-template-columns: 1fr; }
+
       .hero { min-height: 70vh; }
       .timeline { padding-left: 1.2rem; }
       .timeline-item::before { left: -1.54rem; }
@@ -310,6 +494,41 @@
         <div style="grid-column: span 12;">
           <img src="https://i.postimg.cc/nL36W3g0/Untitled-2.png" alt="Raj's Space Selfie" class="about-image" loading="lazy" />
           <p>My name is Raj Shekhar Sharma, a 15-year-old from Jalandhar, Punjab, India. I am passionate about astronomy and space science, always eager to learn more about the mysteries of the universe.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="deep-space-tracker" class="reveal tracker-section" aria-labelledby="tracker-title">
+      <div class="tracker-particles" aria-hidden="true"></div>
+      <div class="tracker-content">
+        <span class="status-badge"><span class="status-dot" aria-hidden="true"></span>Signal Status: ACTIVE — Traveling Through Deep Space</span>
+        <h2 id="tracker-title">Live Deep Space Tracker</h2>
+        <div class="tracker-main">
+          <article class="distance-shell" aria-live="polite">
+            <p class="live-label">Live Transmission Distance</p>
+            <p class="distance-value" id="distance-miles">3,560,334,868,839 miles</p>
+            <p class="distance-value" id="distance-km">5,738,494,145,156 km</p>
+            <p class="distance-caption">Distance updates in real-time from the current mission baseline.</p>
+          </article>
+          <div class="mission-grid">
+            <article class="mission-card">
+              <small>Launch Time</small>
+              <p>221 days ago</p>
+            </article>
+            <article class="mission-card">
+              <small>Current Distance (km)</small>
+              <p id="mission-km">5,738,494,145,156 km</p>
+            </article>
+            <article class="mission-card">
+              <small>Current Distance (miles)</small>
+              <p id="mission-miles">3,560,334,868,839 miles</p>
+            </article>
+            <article class="mission-card">
+              <small>Origin</small>
+              <p>Sharma Family, Jalandhar, Punjab</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -481,6 +700,66 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const trackerSection = document.getElementById('deep-space-tracker');
+    const trackerParticles = trackerSection?.querySelector('.tracker-particles');
+
+    if (trackerParticles) {
+      const particleCount = window.innerWidth < 768 ? 22 : 36;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'tracker-particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${6 + Math.random() * 8}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.opacity = `${0.25 + Math.random() * 0.6}`;
+        trackerParticles.appendChild(particle);
+      }
+    }
+
+    const distanceMilesEl = document.getElementById('distance-miles');
+    const distanceKmEl = document.getElementById('distance-km');
+    const missionMilesEl = document.getElementById('mission-miles');
+    const missionKmEl = document.getElementById('mission-km');
+
+    const baseMiles = 3560334868839;
+    const baseKm = 5738494145156;
+    const launchDays = 221;
+    const secondsSinceLaunch = launchDays * 24 * 60 * 60;
+    const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
+    const speedKmPerSecond = baseKm / secondsSinceLaunch;
+
+    let targetMiles = baseMiles;
+    let targetKm = baseKm;
+    let displayMiles = baseMiles;
+    let displayKm = baseKm;
+
+    const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
+
+    const pushSecondUpdate = () => {
+      targetMiles += speedMilesPerSecond;
+      targetKm += speedKmPerSecond;
+    };
+
+    const tickCounter = () => {
+      displayMiles += (targetMiles - displayMiles) * 0.16;
+      displayKm += (targetKm - displayKm) * 0.16;
+
+      const milesText = formatDistance(displayMiles, 'miles');
+      const kmText = formatDistance(displayKm, 'km');
+
+      if (distanceMilesEl) distanceMilesEl.textContent = milesText;
+      if (distanceKmEl) distanceKmEl.textContent = kmText;
+      if (missionMilesEl) missionMilesEl.textContent = milesText;
+      if (missionKmEl) missionKmEl.textContent = kmText;
+
+      requestAnimationFrame(tickCounter);
+    };
+
+    setInterval(pushSecondUpdate, 1000);
+    requestAnimationFrame(tickCounter);
+
   </script>
 </body>
 </html>
