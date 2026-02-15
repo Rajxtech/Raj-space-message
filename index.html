@@ -770,6 +770,40 @@
 
     setDistanceText();
     setInterval(updateDistance, updateIntervalMs);
+    const launchDays = 221;
+    const secondsSinceLaunch = launchDays * 24 * 60 * 60;
+    const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
+    const speedKmPerSecond = baseKm / secondsSinceLaunch;
+
+    let targetMiles = baseMiles;
+    let targetKm = baseKm;
+    let displayMiles = baseMiles;
+    let displayKm = baseKm;
+
+    const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
+
+    const pushSecondUpdate = () => {
+      targetMiles += speedMilesPerSecond;
+      targetKm += speedKmPerSecond;
+    };
+
+    const tickCounter = () => {
+      displayMiles += (targetMiles - displayMiles) * 0.16;
+      displayKm += (targetKm - displayKm) * 0.16;
+
+      const milesText = formatDistance(displayMiles, 'miles');
+      const kmText = formatDistance(displayKm, 'km');
+
+      if (distanceMilesEl) distanceMilesEl.textContent = milesText;
+      if (distanceKmEl) distanceKmEl.textContent = kmText;
+      if (missionMilesEl) missionMilesEl.textContent = milesText;
+      if (missionKmEl) missionKmEl.textContent = kmText;
+
+      requestAnimationFrame(tickCounter);
+    };
+
+    setInterval(pushSecondUpdate, 1000);
+    requestAnimationFrame(tickCounter);
 
   </script>
 </body>
