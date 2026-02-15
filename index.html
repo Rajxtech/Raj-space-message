@@ -725,6 +725,51 @@
 
     const baseMiles = 3560334868839;
     const baseKm = 5738494145156;
+    const stepKm = 1_000_000;
+    const stepMiles = 1_000_000;
+    const updateIntervalMs = 5000;
+
+    let currentMiles = baseMiles;
+    let currentKm = baseKm;
+
+    const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
+
+    const setDistanceText = () => {
+      const milesText = formatDistance(currentMiles, 'miles');
+      const kmText = formatDistance(currentKm, 'km');
+
+      if (distanceMilesEl) distanceMilesEl.textContent = milesText;
+      if (missionMilesEl) missionMilesEl.textContent = milesText;
+      if (distanceKmEl) distanceKmEl.textContent = kmText;
+      if (missionKmEl) missionKmEl.textContent = kmText;
+    };
+
+    const animateDistancePulse = () => {
+      const animatedNodes = [distanceMilesEl, distanceKmEl, missionMilesEl, missionKmEl].filter(Boolean);
+      animatedNodes.forEach((node) => {
+        node.animate(
+          [
+            { opacity: 0.78, transform: 'translateY(6px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+          ],
+          {
+            duration: 700,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            fill: 'both'
+          }
+        );
+      });
+    };
+
+    const updateDistance = () => {
+      currentMiles += stepMiles;
+      currentKm += stepKm;
+      setDistanceText();
+      animateDistancePulse();
+    };
+
+    setDistanceText();
+    setInterval(updateDistance, updateIntervalMs);
     const launchDays = 221;
     const secondsSinceLaunch = launchDays * 24 * 60 * 60;
     const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
