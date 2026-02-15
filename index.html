@@ -725,81 +725,40 @@
 
     const baseMiles = 3560334868839;
     const baseKm = 5738494145156;
-    const speedOfLightKmPerSecond = 299792.458;
-    const speedOfLightMilesPerSecond = 186282.397;
-    const stepKm = 1_000_000;
-    const stepMiles = 1_000_000;
-    const calculationIntervalMs = 500;
-    const transitionDurationMs = 1300;
+    const launchDays = 221;
+    const secondsSinceLaunch = launchDays * 24 * 60 * 60;
+    const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
+    const speedKmPerSecond = baseKm / secondsSinceLaunch;
 
     let targetMiles = baseMiles;
     let targetKm = baseKm;
     let displayMiles = baseMiles;
     let displayKm = baseKm;
-    let currentMiles = baseMiles;
-    let currentKm = baseKm;
-    let animationFrameId = 0;
-    const missionStartTime = Date.now();
 
     const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
 
-    const renderDistance = (milesValue, kmValue) => {
-      const milesText = formatDistance(milesValue, 'miles');
-      const kmText = formatDistance(kmValue, 'km');
+    const pushSecondUpdate = () => {
+      targetMiles += speedMilesPerSecond;
+      targetKm += speedKmPerSecond;
+    };
+
+    const tickCounter = () => {
+      displayMiles += (targetMiles - displayMiles) * 0.16;
+      displayKm += (targetKm - displayKm) * 0.16;
+
+      const milesText = formatDistance(displayMiles, 'miles');
+      const kmText = formatDistance(displayKm, 'km');
+
       if (distanceMilesEl) distanceMilesEl.textContent = milesText;
-      if (missionMilesEl) missionMilesEl.textContent = milesText;
       if (distanceKmEl) distanceKmEl.textContent = kmText;
+      if (missionMilesEl) missionMilesEl.textContent = milesText;
       if (missionKmEl) missionKmEl.textContent = kmText;
+
+      requestAnimationFrame(tickCounter);
     };
 
-    const animateToTargets = () => {
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-
-      const startMiles = displayMiles;
-      const startKm = displayKm;
-      const startTime = performance.now();
-
-      const step = (now) => {
-        const progress = Math.min((now - startTime) / transitionDurationMs, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-
-        displayMiles = startMiles + (targetMiles - startMiles) * eased;
-        displayKm = startKm + (targetKm - startKm) * eased;
-
-        renderDistance(displayMiles, displayKm);
-
-        if (progress < 1) {
-          animationFrameId = requestAnimationFrame(step);
-        } else {
-          displayMiles = targetMiles;
-          displayKm = targetKm;
-          renderDistance(displayMiles, displayKm);
-          animationFrameId = 0;
-        }
-      };
-
-      animationFrameId = requestAnimationFrame(step);
-    };
-
-    const updateTargetsByLightSpeed = () => {
-      const elapsedSeconds = (Date.now() - missionStartTime) / 1000;
-      const kmSteps = Math.floor((speedOfLightKmPerSecond * elapsedSeconds) / stepKm);
-      const mileSteps = Math.floor((speedOfLightMilesPerSecond * elapsedSeconds) / stepMiles);
-
-      const nextKm = baseKm + kmSteps * stepKm;
-      const nextMiles = baseMiles + mileSteps * stepMiles;
-
-      if (nextKm !== currentKm || nextMiles !== currentMiles) {
-        currentKm = nextKm;
-        currentMiles = nextMiles;
-        targetKm = nextKm;
-        targetMiles = nextMiles;
-        animateToTargets();
-      }
-    };
-
-    renderDistance(displayMiles, displayKm);
-    setInterval(updateTargetsByLightSpeed, calculationIntervalMs);
+    setInterval(pushSecondUpdate, 1000);
+    requestAnimationFrame(tickCounter);
 
   </script>
 </body>
