@@ -1,754 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Raj Shekhar Sharma - Astronomy Enthusiast</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(ellipse at bottom, #000015 0%, #000000 100%);
-  color: #00ffc8;
-  overflow-x: hidden;
-}
-@keyframes twinkle {
-  0%, 100% {opacity: 1;}
-  50% {opacity: 0.5;} 
-}
-#starfield {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: transparent;
-  pointer-events: none;
-  z-index: 0;
-}
-.star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: twinkle 2s infinite ease-in-out;
-}
-h1, h2, h3 {
-  color: #00ffc8;
-  text-align: center;
-  text-shadow: 0 0 8px #00ffc8, 0 0 16px #00ffc8, 0 0 20px #00ffc8;
-}
-h1 {
-  font-weight: 700;
-  margin-top: 1rem;
-  font-size: 2.8rem;
-}
-h2 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
-section {
-  max-width: 900px;
-  margin: 0 auto 4rem auto;
-  padding: 20px;
-  background: rgba(0, 15, 25, 0.7);
-  border-radius: 15px;
-  box-shadow: 0 0 15px #00ffc8;
-  z-index: 1;
-  position: relative;
-}
-p, ul {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-ul {
-  padding-left: 1.3rem;
-  list-style-type: none;
-}
-ul li::before {
-  content: "\2022";
-  color: #00ffc8;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-img.rounded {
-  max-width: 280px;
-  width: 100%;
-  display: block;
-  margin: 10px auto;
-  border-radius: 25px;
-  box-shadow: 0 0 15px #00ffc8;
-}
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 15px;
-  box-shadow: 0 0 15px #00ffc8;
-}
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 15px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-}
-input, textarea {
-  background: #001522;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  color: #00ffc8;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  box-shadow: 0 0 8px #00ffc8;
-}
-input::placeholder, textarea::placeholder {
-  color: #00ffc8;
-  opacity: 0.7;
-}
-button {
-  background: #00ffc8;
-  border: none;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  color: #000;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 0 15px #00ffc8;
-  transition: background-color 0.3s ease;
-}
-button:hover {
-  background-color: #008071;
-}
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.4rem;
-  }
-  section {
-    margin: 1rem 15px 2rem 15px;
-    padding: 15px;
-  }
-  img.rounded {
-    max-width: 100%;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official science portfolio of Raj Shekhar Sharma, astronomy enthusiast and young space communicator from India." />
+  <meta name="keywords" content="Raj Shekhar Sharma, astronomy, space science, youth scientist, deep space message, NASA virtual guest" />
+  <meta name="author" content="Raj Shekhar Sharma" />
+  <meta property="og:title" content="Raj Shekhar Sharma | Space Science Portfolio" />
+  <meta property="og:description" content="Explore achievements, research, awards, and projects in astronomy and space science." />
+  <meta property="og:type" content="website" />
+  <title>Raj Shekhar Sharma | Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040712;
+      --panel: rgba(12, 19, 37, 0.75);
+      --panel-strong: rgba(10, 16, 31, 0.9);
+      --text: #d7eeff;
+      --muted: #93acc5;
+      --primary: #00ffc8;
+      --secondary: #0b74ff;
+      --line: rgba(0, 255, 200, 0.22);
+      --shadow: 0 14px 30px rgba(0, 255, 200, 0.12);
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at 20% 10%, #0e1939 0%, #060a18 40%, #03050c 100%);
+      line-height: 1.6;
+    }
+
+    #starfield {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.8;
+      animation: twinkle 2.5s infinite ease-in-out;
+    }
+
+    @keyframes twinkle { 0%,100% { opacity: 0.9; } 50% { opacity: 0.25; } }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-card {
+      width: 100%;
+      background: linear-gradient(160deg, rgba(11, 116, 255, 0.18), rgba(0, 255, 200, 0.08));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: clamp(1.4rem, 4vw, 3rem);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Orbitron", sans-serif;
+      margin: 0 0 0.8rem;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    h1 { font-size: clamp(2rem, 4.6vw, 4rem); color: #e9f5ff; }
+    h2 { font-size: clamp(1.4rem, 2.6vw, 2.2rem); color: var(--primary); }
+    h3 { font-size: clamp(1.05rem, 2vw, 1.35rem); color: #b2f9e8; }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0.4rem auto 1.5rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 0.75rem 1.2rem;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #031111;
+      box-shadow: 0 0 14px rgba(0, 255, 200, 0.4);
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      border-color: var(--line);
+      background: rgba(3, 13, 24, 0.7);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    main section {
+      margin: 1rem 0 1.8rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: clamp(1rem, 2.8vw, 2rem);
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .about-image {
+      width: min(330px, 100%);
+      border-radius: 14px;
+      border: 2px solid rgba(102, 252, 241, 0.6);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.95rem;
+    }
+
+    .card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 255, 200, 0.48);
+    }
+
+    .media-image {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 252, 241, 0.4);
+      margin-top: 0.6rem;
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 0.3rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(var(--secondary), var(--primary));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1rem;
+      padding: 0.9rem 0.9rem 0.9rem 1rem;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.86rem;
+      top: 1.1rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.8);
+    }
+
+    .skill-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .video-container {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      margin-bottom: 0.9rem;
+    }
+
+    .video-container iframe { width: 100%; height: 100%; border: 0; }
+
+    form {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      border: 1px solid var(--line);
+      background: rgba(2, 9, 19, 0.84);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.75rem;
+      font: inherit;
+    }
+
+    footer {
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 1.4rem 0 2rem;
+      color: var(--muted);
+    }
+
+    footer a { color: #dceaff; text-decoration: none; margin: 0 0.45rem; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 760px) {
+      .hero { min-height: 70vh; }
+      .timeline { padding-left: 1.2rem; }
+      .timeline-item::before { left: -1.54rem; }
+    }
+  </style>
 </head>
 <body>
-  
-<div id="starfield"></div>
-<header>
-  <h1>Raj Shekhar Sharma</h1>
-  <p style="text-align:center; font-size:1.2rem; color:#008071;">15-year-old Astronomy and Space Science Enthusiast</p>
-</header>
-<section id="about-me">
-  <h2>About Me</h2>
-  <div style="max-width:400px; margin: 0 auto;">
-     <img 
-  src="https://i.postimg.cc/nL36W3g0/Untitled-2.png" 
-  alt="Raj's Space Selfie" 
-  style="width: 300px; border: 2px solid #66fcf1; border-radius: 10px;">
-  </div>
-  <p>My name is Raj Shekhar Sharma, a 15-year-old from Jalandhar, Punjab, India. I am passionate about astronomy and space science, always eager to learn more about the mysteries of the universe.</p>
-</section>
-<section id="achievements">
-  <h2>Achievements</h2>
-  <ul>
-    <li>Sent a personal message over 4 trillion km into deep space via Haystack Observatory, MIT (Spacespeak project)</li>
-    <section id="recognition-event-3" style="text-align: center; margin: 40px 0;">
-  <h2 style="font-family: Arial, sans-serif; color: #1e90ff;">Proof of Space Message</h2>
-  <p style="font-family: Verdana, sans-serif; color: #333;">
-    Got Certificate of Authenticity, Authenticatimg that message was actually sent .
-  </p>
-  <img 
-    src="https://i.postimg.cc/kg4ZbQBS/IMG-20250715-WA0019.jpg" 
-    alt="Raj Shekhar Sharma's Certificate of authenticity by Spacespeak" 
-    style="
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #2E8B57;
-      box-shadow: 0 0 20px 4px #2E8B57;
-      transition: transform 0.3s ease-in-out;
-    "
-    onmouseover="this.style.transform='scale(1.03)'"
-    onmouseout="this.style.transform='scale(1)'"
-  />
-      </section>
-    <section id="space-initiative-badge" style="text-align: center; margin: 40px 0;">
-  <h2 style="font-family: Arial, sans-serif; color: #1e90ff;">India Book of Records</h2>
-  
-  <p style="font-family: Verdana, sans-serif; color: #333;">
-    Honoured to be recognized and featured by India Book of Records for transmitting a message into deep space.
-  </p>
+  <div id="starfield" aria-hidden="true"></div>
 
-  <img 
-    src="https://i.postimg.cc/y6mL6mYQ/IMG-20250801-151341-2.jpg" 
-    alt="Raj Shekhar Sharma Space Recognition" 
-    style="
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #2E8B57;
-      box-shadow: 0 0 20px 4px #2E8B57;
-      transition: transform 0.3s ease-in-out;
-    "
-    onmouseover="this.style.transform='scale(1.03)'"
-    onmouseout="this.style.transform='scale(1)'"
-  />
-
-  <!-- Official Link Button -->
-  <div style="margin-top: 25px;">
-    <a href="https://indiabookofrecords.in/raj-shekhar-sharma-ibr-achiever/" target="_blank"
-       style="
-         display: inline-block;
-         padding: 12px 26px;
-         background-color: #2E8B57;
-         color: white;
-         font-family: Arial, sans-serif;
-         font-size: 15px;
-         font-weight: bold;
-         text-decoration: none;
-         border-radius: 6px;
-         box-shadow: 0 0 15px #2E8B57;
-         transition: all 0.3s ease-in-out;
-       "
-       onmouseover="this.style.boxShadow='0 0 25px #2E8B57'; this.style.transform='scale(1.05)'"
-       onmouseout="this.style.boxShadow='0 0 15px #2E8B57'; this.style.transform='scale(1)'"
-    >
-      🌟 View Official Record
-    </a>
-  </div>
-    </section>
-    <li>Sent my name to Mars with NASA's Mars mission</li>
-      <section id="recognition-event-3" style="text-align: center; margin: 40px 0;">
-        <section id="media">
-  <h2>Featured</h2>
-  <img 
-    src="https://i.postimg.cc/1zbTd77z/Screenshot-20250803-010935-Photos.jpg" 
-    alt="Raj's Featured Image"
-    style="width: 300px; display: block; margin: 20px auto; 
-           border: 2px solid #66fcf1; 
-           border-radius: 15px; 
-           box-shadow: 0 0 15px #00ffc8;" />
-        </section>
-      </section>
-      <!-- ================= ACHIEVEMENT: MESSAGE AROUND THE MOON ================= -->
-<!-- ================= ACHIEVEMENT: MESSAGE AROUND THE MOON ================= -->
-<div style="
-  margin-top: 40px;
-  border: 2px solid #0f7f4f;
-  box-shadow: 0 0 12px #0f7f4f;
-  border-radius: 15px;
-  padding: 22px;
-  background: rgba(15, 127, 79, 0.08);
-  color: #eafff5;
-">
-
-  <h3 style="color:#0f7f4f; text-shadow:0 0 6px #0f7f4f;">
-    🌙 Lunar Space Achievement
-  </h3>
-
-  <p style="line-height:1.8;">
-    <strong>Title:</strong> Message Sent Around the Moon (Artemis Program)<br>
-    <strong>Achievement:</strong> My name will be transmit to moon
-    on a digital boarding pass as part of an international lunar mission initiative.
-    The Name traveled around the Moon and return to Earth, making me a participant
-    in real deep-space communication history.
-  </p>
-
-  <p style="line-height:1.8;">
-    <strong>Proof:</strong> Official Lunar Boarding Pass
-  </p>
-
-  <p style="margin-top:15px;">
-    <a href="https://i.postimg.cc/MGWr0GBP/boarding-pass.jpg" target="_blank" style="
-      display:inline-block;
-      padding:12px 22px;
-      border-radius:10px;
-      border:2px solid #0f7f4f;
-      color:#0f7f4f;
-      text-decoration:none;
-      font-weight:bold;
-      box-shadow:0 0 8px #0f7f4f;
-      transition:0.3s;
-    " onmouseover="this.style.background='#0f7f4f'; this.style.color='#000';"
-       onmouseout="this.style.background='transparent'; this.style.color='#0f7f4f';">
-      🖼 View Lunar Boarding Pass
-    </a>
-  </p>
-
-</div>
-<!-- ================= END ACHIEVEMENT ================= -->
-    <p style="line-height:1.7; margin-top:10px;">
-  🏆 <strong>First Prize – Science Exhibition (Space Communication System)</strong><br>
-  Built and demonstrated a working space-communication model that secured the first prize for innovation, clarity, and technical execution.
-</p>
-
-<!-- Project Image -->
-<img src=" https://i.postimg.cc/7hYjN0t7/file-000000007ca07209b4fe7a2285abf30d.png" alt="Space Communication System Project" style="
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 10px #0f7f4f;
-">
-
-<!-- Certificate Image -->
-<img src="https://i.postimg.cc/yN4vVXxq/IMG-20251212-093955-2.jpg" alt="First Prize Certificate" style="
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
-  margin-top: 15px;
-  box-shadow: 0 0 10px #0f7f4f;
-">
-    <li>Participated in over 30 missions as a NASA Virtual Guest</li>
-    <section id="nasa-crew11-badge" style="text-align: center; margin: 20px 0;">
-  <h2 style="font-family: Arial, sans-serif; color: #1e90ff;">NASA SpaceX Crew-11 Virtual Guest</h2>
-  <p style="font-family: Verdana, sans-serif; color: #333;">I proudly participated as a virtual guest for the SpaceX Crew-11 mission from Kennedy Space Center, LC-39A.</p>
-  <img 
-    src="https://i.postimg.cc/134tcdmk/Screenshot-20250803-004637-Samsung-Internet.jpg" 
-    alt="NASA SpaceX Crew-11 Virtual Guest Badge" 
-    style="
-      max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #2E8B57;
-      box-shadow: 0 0 20px 4px #2E8B57;
-      transition: transform 0.3s ease-in-out;
-    "
-    onmouseover="this.style.transform='scale(1.03)'"
-    onmouseout="this.style.transform='scale(1)'"
-  />
-    </section>
-    
-  <!-- Vyom Medha AI Section -->
-<section id="ai-project" style="padding: 40px 0; border-top: 4px solid #00ffcc;">
-  <div style="text-align: center; margin-bottom: 30px;">
-    <h2 style="font-size: 32px; font-weight: bold; color: #00ffcc; text-shadow: 0 0 10px #00ffcc;">
-      Vyom Medha AI Project
-    </h2>
-    <p style="font-size: 16px; color: #ccc;">
-      Interactive AI assistant created at age 15 — blending creativity, space science & artificial intelligence.
-    </p>
-  </div>
-
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-    
-    <!-- Image Circle -->
-    <div style="flex: 0 0 170px; text-align: center; margin-bottom: 20px;">
-      <div style="width: 170px; height: 170px; border: 3px solid #00ffcc; border-radius: 50%; 
-                  margin: auto; box-shadow: 0 0 25px #00ffcc; overflow: hidden;">
-        <img src="https://i.postimg.cc/1tKfqrwz/Screenshot-20260203-133016-2.jpg" 
-             alt="Vyom Medha AI" 
-             style="width: 100%; height: 100%; object-fit: cover;">
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card reveal">
+        <span class="tag">Astronomy & Space Science Portfolio</span>
+        <h1>Raj Shekhar Sharma</h1>
+        <p class="subtitle">15-year-old Astronomy and Space Science Enthusiast building a future in deep-space communication, AI creativity, and scientific storytelling.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#achievements">Explore Achievements</a>
+          <a class="btn btn-secondary" href="#contact">Connect With Me</a>
+        </div>
       </div>
-      <p style="margin-top: 12px; font-size: 14px; color: #aaa;">Vyom Medha AI</p>
     </div>
+  </header>
 
-    <!-- Text Description -->
-    <div style="max-width: 620px; margin: 0 20px;">
-      <p style="font-size: 15px; color: #eee; line-height: 1.7;">
-        Vyom Medha AI is an interactive artificial intelligence assistant designed and launched on Instagram.
-        It helps users discover creative editing ideas, explore fascinating space science facts, and understand
-        artificial intelligence in simple, clear words. This project was created and deployed at the age of 15,
-        and it received highly positive user feedback with real engagement from people interacting with it.
-      </p>
+  <main class="container">
+    <section id="about-me" class="reveal" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+      <div class="grid">
+        <div style="grid-column: span 12;">
+          <img src="https://i.postimg.cc/nL36W3g0/Untitled-2.png" alt="Raj's Space Selfie" class="about-image" loading="lazy" />
+          <p>My name is Raj Shekhar Sharma, a 15-year-old from Jalandhar, Punjab, India. I am passionate about astronomy and space science, always eager to learn more about the mysteries of the universe.</p>
+        </div>
+      </div>
+    </section>
 
-      <p style="font-size: 14px; color: #ccc; margin-top: 10px;">
-        <strong>Platform:</strong> Instagram AI Tools<br>
-        <strong>Role:</strong> Concept, Branding, Personality & Launch
-      </p>
+    <section id="achievements" class="reveal" aria-labelledby="achievements-title">
+      <h2 id="achievements-title">Achievements</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Sent a personal message over 4 trillion km into deep space via Haystack Observatory, MIT (Spacespeak project)</h3>
+          <p>Got Certificate of Authenticity, Authenticatimg that message was actually sent.</p>
+          <img class="media-image" src="https://i.postimg.cc/kg4ZbQBS/IMG-20250715-WA0019.jpg" alt="Raj Shekhar Sharma's Certificate of authenticity by Spacespeak" loading="lazy" />
+        </article>
 
-      <p style="margin-top: 20px;">
-        <a href="https://aistudio.instagram.com/ai/923486317005991?utm_source=ai_agent" target="_blank"
-           style="text-decoration: none; font-size: 15px; background-color: #00ffcc; color: #000; 
-                  padding: 12px 24px; border-radius: 6px; font-weight: bold;
-                  box-shadow: 0 0 15px #00ffcc; display: inline-block;">
-          🚀 Try Vyom Medha AI Now
-        </a>
-      </p>
-    </div>
+        <article class="timeline-item">
+          <h3>India Book of Records</h3>
+          <p>Honoured to be recognized and featured by India Book of Records for transmitting a message into deep space.</p>
+          <img class="media-image" src="https://i.postimg.cc/y6mL6mYQ/IMG-20250801-151341-2.jpg" alt="Raj Shekhar Sharma Space Recognition" loading="lazy" />
+          <p><a class="btn btn-secondary" href="https://indiabookofrecords.in/raj-shekhar-sharma-ibr-achiever/" target="_blank" rel="noopener noreferrer">🌟 View Official Record</a></p>
+        </article>
 
-  </div>
-</section>
-  <!-- ===== Other Skills & Certifications Section ===== -->
-<section id="other-skills" style="text-align:center; padding:40px 20px; background:transparent;">
-  
-  <h2 style="
-      font-size:2rem; 
-      color:seagreen; 
-      margin-bottom:25px; 
-      text-shadow:0 0 12px rgba(46,139,87,0.9);
-      font-family:'Segoe UI', sans-serif;
-  ">
-    Other Skills & Certifications
-  </h2>
-  
-  <div style="
-      display:inline-block; 
-      max-width:340px; 
-      border:3px solid seagreen; 
-      border-radius:10px; 
-      background:transparent; 
-      box-shadow:0 0 18px rgba(46,139,87,0.8); 
-      padding:12px; 
-      transition:all 0.3s ease;
-  " 
-  onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px seagreen';" 
-  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 18px rgba(46,139,87,0.8)';">
-    
-    <a href="images/google-ai-certificate.jpg" target="_blank">
-      <img src="https://i.postimg.cc/RVM5nsfm/Screenshot-20250812-001522-2.png" alt="Google AI Certificate" style="
-          width:100%; 
-          height:auto; 
-          border-radius:5px;
-      ">
-    </a>
-    
-    <p style="
-        margin-top:10px; 
-        font-size:1rem; 
-        color:#fff; 
-        font-family:'Segoe UI', sans-serif;
-    ">
-      Google–Coursera: Introduction to AI
+        <article class="timeline-item">
+          <h3>Sent my name to Mars with NASA's Mars mission</h3>
+          <div class="card">
+            <h3>Featured</h3>
+            <img class="media-image" src="https://i.postimg.cc/1zbTd77z/Screenshot-20250803-010935-Photos.jpg" alt="Raj's Featured Image" loading="lazy" />
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <h3>🌙 Lunar Space Achievement</h3>
+          <p><strong>Title:</strong> Message Sent Around the Moon (Artemis Program)<br />
+          <strong>Achievement:</strong> My name will be transmit to moon on a digital boarding pass as part of an international lunar mission initiative. The Name traveled around the Moon and return to Earth, making me a participant in real deep-space communication history.</p>
+          <p><a class="btn btn-secondary" href="https://i.postimg.cc/MGWr0GBP/boarding-pass.jpg" target="_blank" rel="noopener noreferrer">🖼 View Lunar Boarding Pass</a></p>
+        </article>
+
+        <article class="timeline-item">
+          <h3>🏆 First Prize – Science Exhibition (Space Communication System)</h3>
+          <p>Built and demonstrated a working space-communication model that secured the first prize for innovation, clarity, and technical execution.</p>
+          <img class="media-image" src="https://i.postimg.cc/7hYjN0t7/file-000000007ca07209b4fe7a2285abf30d.png" alt="Space Communication System Project" loading="lazy" />
+          <img class="media-image" src="https://i.postimg.cc/yN4vVXxq/IMG-20251212-093955-2.jpg" alt="First Prize Certificate" loading="lazy" />
+        </article>
+
+        <article class="timeline-item">
+          <h3>Participated in over 30 missions as a NASA Virtual Guest</h3>
+          <p>I proudly participated as a virtual guest for the SpaceX Crew-11 mission from Kennedy Space Center, LC-39A.</p>
+          <img class="media-image" src="https://i.postimg.cc/134tcdmk/Screenshot-20250803-004637-Samsung-Internet.jpg" alt="NASA SpaceX Crew-11 Virtual Guest Badge" loading="lazy" />
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects, Skills & Certifications</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Vyom Medha AI Project</h3>
+          <p>Interactive AI assistant created at age 15 — blending creativity, space science & artificial intelligence.</p>
+          <img class="media-image" src="https://i.postimg.cc/1tKfqrwz/Screenshot-20260203-133016-2.jpg" alt="Vyom Medha AI" loading="lazy" />
+          <p>Vyom Medha AI is an interactive artificial intelligence assistant designed and launched on Instagram. It helps users discover creative editing ideas, explore fascinating space science facts, and understand artificial intelligence in simple, clear words.</p>
+          <p><strong>Platform:</strong> Instagram AI Tools<br /><strong>Role:</strong> Concept, Branding, Personality & Launch</p>
+          <p><a class="btn btn-secondary" href="https://aistudio.instagram.com/ai/923486317005991?utm_source=ai_agent" target="_blank" rel="noopener noreferrer">🚀 Try Vyom Medha AI Now</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Google–Coursera: Introduction to AI</h3>
+          <img class="media-image" src="https://i.postimg.cc/RVM5nsfm/Screenshot-20250812-001522-2.png" alt="Google AI Certificate Introduction" loading="lazy" />
+        </article>
+
+        <article class="card">
+          <h3>Google–Coursera: Maximize productivity with AI</h3>
+          <img class="media-image" src="https://i.postimg.cc/MGt8S9XW/AISelect-20250815-194801-One-Drive.jpg" alt="Google AI productivity certificate" loading="lazy" />
+        </article>
+
+        <article class="card">
+          <h3>Google–Coursera: Discover the art of prompting</h3>
+          <img class="media-image" src="https://i.postimg.cc/LXpZp9sx/In-Shot-20250914-202215217.jpg" alt="Prompting certificate" loading="lazy" />
+        </article>
+
+        <article class="card">
+          <h3>Google–Coursera: Use AI responsibly</h3>
+          <img class="media-image" src="https://i.postimg.cc/HLh8rw3P/In-Shot-20250914-201932394.jpg" alt="Responsible AI certificate" loading="lazy" />
+        </article>
+      </div>
+    </section>
+
+    <section id="space-message" class="reveal" aria-labelledby="space-message-title">
+      <h2 id="space-message-title">Message Sent into Deep Space</h2>
+      <div class="card">
+        <p>Message transmitted individually by Raj Shekhar Sharma from Jalandhar, Punjab, India (Earth), 2025.<br />
+        The message included the names: Raj Shekhar Sharma, Raj Kumar Sharma, Pt. Chetram Sharma, Vandna, Sheela, and Vivaan.<br />
+        We are dreamers, seekers, and believers in the infinite possibilities of the universe. May our names journey among the stars as a legacy of love, unity, and hope. This message is a symbol of humanity's shared dream to explore beyond — from one small family to the infinite cosmos.</p>
+        <h3>Binary code</h3>
+        <pre style="max-height: 260px; overflow:auto; white-space: pre-wrap; word-break: break-word;">01000110000000000111001000000000011011110000000001101101000000000010000000000000011101000000000001101000000000000110010100000000001000000000000001010011000000000110100000000000011000010000000001110010000000000110110100000000011000010000000000100000000000000100011000000000011000010000000001101101000000000110100100000000011011000000000001111001000000000010000000000000011011110000000001100110000000000010000000000000010010100000000001100001000000000110110000000000011000010000000001101110000000000110010000000000011010000000000001100001000000000111001000000000001011000000000000100000000000000101000000000000011101010000000001101110000000000110101000000000011000010000000001100010000000000010110000000000001000000000000001001001000000000110111000000000011001000000000001101001000000000110000100000000001000000000000000010011001000000010000000000000010001010000000001100001000000000111001000000000011101000000000001101000000000000010110000000000001000000000000000110010000000000011000000000000001100100000000000110101000000000000110100000000000010100000000001010010000000000110000100000000011010100000000000100000000000000101001100000000011010000000000001100101000000000110101100000000011010000000000001100001000000000111001000000000001000000000000001010011000000000110100000000000011000010000000001110010000000000110110100000000011000010000000000101100000000000010000000000000010100100000000001100001000000000110101000000000001000000000000001001011000000000111010100000000011011010000000001100001000000000111001000000000001000000000000001010011000000000110100000000000011000010000000001110010000000000110110100000000011000010000000000101100000000000010000000000000010100000000000001110010000000000010111000000000001000000000000001000011000000000110100000000000011001010000000001110100000000000111001000000000011000010000000001101101000000000010000000000000010100110000000001101000000000000110000100000000011100100000000001101101000000000110000100000000001011000000000000100000000000000101011000000000011000010000000001101110000000000110010000000000011011100000000001100001000000000010110000000000001000000000000001010011000000000110100000000000011001010000000001100101000000000110110000000000011000010000000000101100000000000010000000000000011000010000000001101110000000000011001000000000001000000000000001010110000000000110100100000000011101100000000001100001000000000110000100000000011011100000000000100000000000000001010000100000000011010000000000001010000000000101011100000000011001010000000000100000000000000110000100000000011100100000000001100101000000000010000000000000011001000000000001110010000000000110010100000000011000010000000001101101000000000110010100000000011100100000000001110011000000000010110000000000001000000000000001110011000000000110010100000000011001010000000001101011000000000110010100000000011100100000000001110011000000000010110000000000001000000000000001100001000000000110111000000000011001000000000000100000000000000110001000000000011001010000000001101100000000000110100100000000011001010000000001110110000000000110010100000000011100100000000001110011000000000010000000000000011010010000000001101110000000000010000000000000011101000000000001101000000000000110010100000000001000000000000001101001000000000110111000000000011001100000000001101001000000000110111000000000011010010000000001110100000000000110010100000000001000000000000001110000000000000110111100000000011100110000000001110011000000000110100100000000011000100000000001101001000000000110110000000000011010010000000001110100000000000110100100000000011001010000000001110011000000000010000000000000011011110000000001100110000000000010000000000000011101000000000001101000000000000110010100000000001000000000000001110101000000000110111000000000011010010000000001110110000000000110010100000000011100100000000001110011000000000110010100000000001011100000000000001101</pre>
+      </div>
+    </section>
+
+    <section id="research" class="reveal" aria-labelledby="research-title">
+      <h2 id="research-title">📄 Research Publication</h2>
+      <article class="card">
+        <h3>Ananta-Koṭi Viṣṇu-Loka and the Concept of a Trans-System Invariant</h3>
+        <p><strong>Author:</strong> Raj Shekhar Sharma<br /><strong>Status:</strong> ✅ Officially Published (with DOI)<br /><strong>Platform:</strong> Zenodo (CERN – Open Research Repository)<br /><strong>Type:</strong> Independent Concept Research Paper</p>
+        <p>This paper presents a new systems-level and cosmological interpretation of a classical Sanskrit verse from the <em>Radha Kripa Kataksha Stotra</em> — “Ananta-koti Vishnu-loka”. Instead of viewing it only as devotional poetry, this research interprets the verse as a possible <strong>ensemble-universe model</strong> describing infinite complete world-systems connected through a single higher-order invariant principle. The work is philosophical and conceptual in nature and does not claim experimental proof.</p>
+        <p><strong>Official DOI:</strong> <a href="https://doi.org/10.5281/zenodo.17875605" target="_blank" rel="noopener noreferrer">10.5281/zenodo.17875605</a></p>
+      </article>
+    </section>
+
+    <section id="video" class="reveal" aria-labelledby="video-title">
+      <h2 id="video-title">Videos</h2>
+      <div class="video-container"><iframe src="https://www.youtube.com/embed/FJRIObJnih0?si=X2jK3990na8keD9b" title="Raj Shekhar Sharma YouTube video 1" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-container"><iframe src="https://www.youtube.com/embed/bzLbLDdOyFo" title="Raj Shekhar Sharma YouTube video 2" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-container"><iframe src="https://www.youtube.com/embed/1lrMqGwUZS0" title="Raj Shekhar Sharma YouTube video 3" loading="lazy" allowfullscreen></iframe></div>
+    </section>
+
+    <section id="awards" class="reveal" aria-labelledby="awards-title">
+      <h2 id="awards-title">Award Moments</h2>
+      <div class="card-grid">
+        <img class="media-image" src="https://i.postimg.cc/KvXBnKkM/IMG-20250812-WA0036.jpg" alt="Raj receiving medal 1" loading="lazy" />
+        <img class="media-image" src="https://i.postimg.cc/xjHDs7C4/IMG-20250812-WA0035.jpg" alt="Raj receiving medal 2" loading="lazy" />
+        <img class="media-image" src="https://i.postimg.cc/mgHCGYGB/IMG-20250820-WA0000.jpg" alt="Raj receiving medal 3" loading="lazy" />
+        <img class="media-image" src="https://i.postimg.cc/50StNzC8/Untitled-3.jpg" alt="Raj with medal close-up" loading="lazy" />
+      </div>
+    </section>
+
+    <section id="contact" class="reveal" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form action="mailto: rvrt555@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Connect with Me</strong></p>
+    <p>
+      <a href="https://youtube.com/@brainybytes-so1iq?si=BxKkoULDKYxPXstf" target="_blank" rel="noopener noreferrer">📺 YouTube</a>
+      <a href="https://www.linkedin.com/in/raj-shekhar-sharma-79a503373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+      <a href="https://www.instagram.com/rajs112k?igsh=ZDA2c3F2aTRlNHdn" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+      <a href="https://github.com/Rajxtech" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
     </p>
-  </div>
-
-  <div style="
-      display:inline-block; 
-      max-width:340px; 
-      border:3px solid seagreen; 
-      border-radius:10px; 
-      background:transparent; 
-      box-shadow:0 0 18px rgba(46,139,87,0.8); 
-      padding:12px; 
-      transition:all 0.3s ease;
-  " 
-  onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px seagreen';" 
-  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 18px rgba(46,139,87,0.8)';">
-    
-    <a href="images/google-ai-certificate.jpg" target="_blank">
-      <img src="https://i.postimg.cc/MGt8S9XW/AISelect-20250815-194801-One-Drive.jpg" alt="Google AI Certificate" style="
-          width:100%; 
-          height:auto; 
-          border-radius:5px;
-      ">
-    </a>
-    
-    <p style="
-        margin-top:10px; 
-        font-size:1rem; 
-        color:#fff; 
-        font-family:'Segoe UI', sans-serif;
-    ">
-      Google–Coursera: Maximize productivity with AI
-    </p>
-  </div>
-  <div style="
-      display:inline-block; 
-      max-width:340px; 
-      border:3px solid seagreen; 
-      border-radius:10px; 
-      background:transparent; 
-      box-shadow:0 0 18px rgba(46,139,87,0.8); 
-      padding:12px; 
-      transition:all 0.3s ease;
-  " 
-  onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px seagreen';" 
-  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 18px rgba(46,139,87,0.8)';">
-    
-    <a href="images/google-ai-certificate.jpg" target="_blank">
-      <img src="https://i.postimg.cc/LXpZp9sx/In-Shot-20250914-202215217.jpg" alt="Google AI Certificate" style="
-          width:100%; 
-          height:auto; 
-          border-radius:5px;
-      ">
-    </a>
-    
-    <p style="
-        margin-top:10px; 
-        font-size:1rem; 
-        color:#fff; 
-        font-family:'Segoe UI', sans-serif;
-    ">
-      Google–Coursera: Discover the art of prompting 
-    </p> 
-  </div>
-  <div style="
-      display:inline-block; 
-      max-width:340px; 
-      border:3px solid seagreen; 
-      border-radius:10px; 
-      background:transparent; 
-      box-shadow:0 0 18px rgba(46,139,87,0.8); 
-      padding:12px; 
-      transition:all 0.3s ease;
-  " 
-  onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px seagreen';" 
-  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 18px rgba(46,139,87,0.8)';">
-    
-    <a href="images/google-ai-certificate.jpg" target="_blank">
-      <img src="https://i.postimg.cc/HLh8rw3P/In-Shot-20250914-201932394.jpg" alt="Google AI Certificate" style="
-          width:100%; 
-          height:auto; 
-          border-radius:5px;
-      ">
-    </a>
-    
-    <p style="
-        margin-top:10px; 
-        font-size:1rem; 
-        color:#fff; 
-        font-family:'Segoe UI', sans-serif;
-    ">
-      Google–Coursera: Use AI responsibly
-    </p>  </div>
-</section>
-<section id="space-message" style="max-width:1000px;margin:40px auto;padding:20px;border-radius:16px;
-    border:2px solid #66fcf1; box-shadow: 0 0 20px rgba(102,252,241,0.25); background: rgba(0,8,12,0.55);">
-  <h2 style="margin-top:0;color:#0b74ff;font-family:'Orbitron',sans-serif;text-align:center;
-             text-shadow: 0 0 6px rgba(11,116,255,0.15);">Message Sent into Deep Space</h2>
-
-  <div style="padding:16px;border-radius:12px;background: rgba(255,255,255,0.02);
-              display:block; margin-bottom:14px;">
-    <p style="color:#0b74ff;font-size:16px;line-height:1.5;font-family: 'Orbitron',sans-serif; margin:0 0 10px;">
-      Message transmitted individually by Raj Shekhar Sharma from Jalandhar, Punjab, India (Earth), 2025.<br>
-The message included the names: Raj Shekhar Sharma, Raj Kumar Sharma, Pt. Chetram Sharma, Vandna, Sheela, and Vivaan.<br>
-We are dreamers, seekers, and believers in the infinite possibilities of the universe. May our names journey among the stars as a legacy of love, unity, and hope. This message is a symbol of humanity's shared dream to explore beyond — from one small family to the infinite cosmos.
-    </p>
-  </div>
-
-  <h3 style="color:#0b74ff;margin:0 0 8px;font-size:14px;font-family: 'Orbitron',sans-serif; text-align:left;">
-    Binary code:
-  </h3>
-
-  
-  <div style="background:#02060a; border-radius:10px; padding:12px; border:1px solid rgba(102,252,241,0.12);
-              box-shadow: 0 0 12px rgba(102,252,241,0.12); max-height:300px; overflow:auto;">
-    <pre style="white-space:pre-wrap; word-break:break-all; color:#cceeff; font-family: 'Courier New',monospace; 
-                font-size:12px; line-height:1.45; margin:0;">
-010001100000000001110010000000000110111100000000011011010000000000100000000000000111010000000000011010000000000001100101000000000010000000000000010100110000000001101000000000000110000100000000011100100000000001101101000000000110000100000000001000000000000001000110000000000110000100000000011011010000000001101001000000000110110000000000011110010000000000100000000000000110111100000000011001100000000000100000000000000100101000000000011000010000000001101100000000000110000100000000011011100000000001100100000000000110100000000000011000010000000001110010000000000010110000000000001000000000000001010000000000000111010100000000011011100000000001101010000000000110000100000000011000100000000000101100000000000010000000000000010010010000000001101110000000000110010000000000011010010000000001100001000000000010000000000000000100110010000000100000000000000100010100000000011000010000000001110010000000000111010000000000011010000000000000101100000000000010000000000000001100100000000000110000000000000011001000000000001101010000000000001101000000000000101000000000010100100000000001100001000000000110101000000000001000000000000001010011000000000110100000000000011001010000000001101011000000000110100000000000011000010000000001110010000000000010000000000000010100110000000001101000000000000110000100000000011100100000000001101101000000000110000100000000001011000000000000100000000000000101001000000000011000010000000001101010000000000010000000000000010010110000000001110101000000000110110100000000011000010000000001110010000000000010000000000000010100110000000001101000000000000110000100000000011100100000000001101101000000000110000100000000001011000000000000100000000000000101000000000000011100100000000000101110000000000010000000000000010000110000000001101000000000000110010100000000011101000000000001110010000000000110000100000000011011010000000000100000000000000101001100000000011010000000000001100001000000000111001000000000011011010000000001100001000000000010110000000000001000000000000001010110000000000110000100000000011011100000000001100100000000000110111000000000011000010000000000101100000000000010000000000000010100110000000001101000000000000110010100000000011001010000000001101100000000000110000100000000001011000000000000100000000000000110000100000000011011100000000001100100000000000010000000000000010101100000000001101001000000000111011000000000011000010000000001100001000000000110111000000000001000000000000000010100001000000000110100000000000010100000000001010111000000000110010100000000001000000000000001100001000000000111001000000000011001010000000000100000000000000110010000000000011100100000000001100101000000000110000100000000011011010000000001100101000000000111001000000000011100110000000000101100000000000010000000000000011100110000000001100101000000000110010100000000011010110000000001100101000000000111001000000000011100110000000000101100000000000010000000000000011000010000000001101110000000000110010000000000001000000000000001100010000000000110010100000000011011000000000001101001000000000110010100000000011101100000000001100101000000000111001000000000011100110000000000100000000000000110100100000000011011100000000000100000000000000111010000000000011010000000000001100101000000000010000000000000011010010000000001101110000000000110011000000000011010010000000001101110000000000110100100000000011101000000000001100101000000000010000000000000011100000000000001101111000000000111001100000000011100110000000001101001000000000110001000000000011010010000000001101100000000000110100100000000011101000000000001101001000000000110010100000000011100110000000000100000000000000110111100000000011001100000000000100000000000000111010000000000011010000000000001100101000000000010000000000000011101010000000001101110000000000110100100000000011101100000000001100101000000000111001000000000011100110000000001100101000000000010111000000000000011010000000000001010000000000100110100000000011000010000000001111001000000000010000000000000011011110000000001110101000000000111001000000000001000000000000001101110000000000110000100000000011011010000000001100101000000000111001100000000001000000000000001101010000000000110111100000000011101010000000001110010000000000110111000000000011001010000000001111001000000000010000000000000011000010000000001101101000000000110111100000000011011100000000001100111000000000010000000000000011101000000000001101000000000000110010100000000001000000000000001110011000000000111010000000000011000010000000001110010000000000111001100000000001000000000000001100001000000000111001100000000001000000000000001100001000000000010000000000000011011000000000001100101000000000110011100000000011000010000000001100011000000000111100100000000001000000000000001101111000000000110011000000000001000000000000001101100000000000110111100000000011101100000000001100101000000000010110000000000001000000000000001110101000000000110111000000000011010010000000001110100000000000111100100000000001011000000000000100000000000000110000100000000011011100000000001100100000000000010000000000000011010000000000001101111000000000111000000000000011001010000000000101110000000000000110100000000000010100000000001010100000000000110100000000000011010010000000001110011000000000010000000000000011011010000000001100101000000000111001100000000011100110000000001100001000000000110011100000000011001010000000000100000000000000110100100000000011100110000000000100000000000000110000100000000001000000000000001110011000000000111100100000000011011010000000001100010000000000110111100000000011011000000000000100000000000000110111100000000011001100000000000100000000000000110100000000000011101010000000001101101000000000110000100000000011011100000000001101001000000000111010000000000011110010000000000011001001000000111001100000000001000000000000001110011000000000110100000000000011000010000000001110010000000000110010100000000011001000000000000100000000000000110010000000000011100100000000001100101000000000110000100000000011011010000000000100000000000000111010000000000011011110000000000100000000000000110010100000000011110000000000001110000000000000110110000000000011011110000000001110010000000000110010100000000001000000000000001100010000000000110010100000000011110010000000001101111000000000110111000000000011001000000000000100000000000000001010000100000000011010000000000001010000000000100011000000000011100100000000001101111000000000110110100000000001000000000000001101111000000000110111000000000011001010000000000100000000000000111001100000000011011010000000001100001000000000110110000000000011011000000000000100000000000000110011000000000011000010000000001101101000000000110100100000000011011000000000001111001000000000010011000100000001000000000000001110100000000000110111100000000001000000000000001110100000000000110100000000000011001010000000000100000000000000110100100000000011011100000000001100110000000000110100100000000011011100000000001101001000000000111010000000000011001010000000000100000000000000110001100000000011011110000000001110011000000000110110100000000011011110000000001110011000000000010111000000000
-    </pre>
-  </div>
-</section>
-   <section style="
-  border: 4px solid #20B2AA;
-  box-shadow: 0 0 15px 5px #20B2AA;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: 30px auto;
-  background-color: black;
-">
-  <h2 style="color:#20B2AA; text-align:center; font-family: Arial, sans-serif; margin-bottom: 20px;">
-    Newspaper Publications
-  </h2>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px;">
-    
-    <div style="text-align:center; max-width: 200px;">
-      <img src=" https://i.postimg.cc/cHWgFD94/IMG-20250810-WA0006.jpg " alt="Dainik Jagran" style="width:100%; height:auto; border-radius:8px; box-shadow: 0 0 8px rgba(32,178,170,0.6); transition: transform 0.3s ease; cursor:pointer;"
-        <img src=" https://i.postimg.cc/pT0WKk3S/IMG-20250808-WA0004.jpg " alt="Dainik Jagran" style="width:100%; height:auto; border-radius:8px; box-shadow: 0 0 8px rgba(32,178,170,0.6); transition: transform 0.3s ease; cursor:pointer;"
-        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px 5px #20B2AA';"
-        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 8px rgba(32,178,170,0.6)';" />
-      <p style="color:#20B2AA; font-family: Arial, sans-serif; margin-top:10px; font-weight:bold;">Dainik Jagran</p>
-    </div>
-    
-    <div style="text-align:center; max-width: 200px;">
-      <img src=" https://i.postimg.cc/7L8nynsj/IMG-20250811-WA0001.jpg " alt="Dainik Bhaskar" style="width:100%; height:auto; border-radius:8px; box-shadow: 0 0 8px rgba(32,178,170,0.6); transition: transform 0.3s ease; cursor:pointer;"
-        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px 5px #20B2AA';"
-        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 8px rgba(32,178,170,0.6)';" />
-      <p style="color:#20B2AA; font-family: Arial, sans-serif; margin-top:10px; font-weight:bold;">Dainik Bhaskar</p>
-    </div>
-    
-    <div style="text-align:center; max-width: 200px;">
-      <img src=" https://i.postimg.cc/Xvkd6Syy/IMG-20250811-WA0002.jpg " alt="Punjab Kesari" style="width:100%; height:auto; border-radius:8px; box-shadow: 0 0 8px rgba(32,178,170,0.6); transition: transform 0.3s ease; cursor:pointer;"
-        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px 5px #20B2AA';"
-        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 8px rgba(32,178,170,0.6)';" />
-      <p style="color:#20B2AA; font-family: Arial, sans-serif; margin-top:10px; font-weight:bold;">Punjab Kesari</p>
-    </div>
-
-  </div>
-   </section>
-  
-  <!-- ================= RESEARCH PUBLICATION SECTION ================= -->
-<section id="research" style="margin-top: 60px;">
-  <div style="
-    border: 2px solid #00ff9c;
-    box-shadow: 0 0 15px #00ff9c;
-    border-radius: 15px;
-    padding: 25px;
-    background: rgba(0, 255, 156, 0.07);
-    color: #eafff5;
-  ">
-
-    <h2 style="color:#00ff9c; text-align:center; text-shadow:0 0 8px #00ff9c;">
-      📄 Research Publication
-    </h2>
-
-    <h3 style="margin-top:20px; color:#8affd6;">
-      Ananta-Koṭi Viṣṇu-Loka and the Concept of a Trans-System Invariant
-    </h3>
-
-    <p style="line-height:1.8;">
-      <strong>Author:</strong> Raj Shekhar Sharma <br>
-      <strong>Status:</strong> ✅ Officially Published (with DOI) <br>
-      <strong>Platform:</strong> Zenodo (CERN – Open Research Repository) <br>
-      <strong>Type:</strong> Independent Concept Research Paper
-    </p>
-
-    <p style="line-height:1.8;">
-      <strong>About this Research:</strong><br>
-      This paper presents a new systems-level and cosmological interpretation of a
-      classical Sanskrit verse from the *Radha Kripa Kataksha Stotra* —
-      “Ananta-koti Vishnu-loka”. Instead of viewing it only as devotional poetry,
-      this research interprets the verse as a possible **ensemble-universe model**
-      describing infinite complete world-systems connected through a single
-      higher-order invariant principle. The work is philosophical and conceptual
-      in nature and does not claim experimental proof.
-    </p>
-
-    <p style="margin-top:15px;">
-  <strong>Official DOI:</strong><br>
-  <a href="https://doi.org/
-    10.5281/zenodo.17875605" target="_blank"
-     style="color:#00ff9c; text-decoration:none; font-weight:bold;">
-    10.5281/zenodo.17875605
-  </a>
-</p>
-
-<p style="margin-top:20px;">
-  <a href="https://doi.org/10.5281/zenodo.17875605" target="_blank" style="
-    display:inline-block;
-    padding:12px 22px;
-    border-radius:10px;
-    border:2px solid #00ff9c;
-    color:#00ff9c;
-    text-decoration:none;
-    font-weight:bold;
-    box-shadow:0 0 10px #00ff9c;
-    transition:0.3s;
-  " onmouseover="this.style.background='#00ff9c'; this.style.color='#000';"
-     onmouseout="this.style.background='transparent'; this.style.color='#00ff9c';">
-    🔗 View Official Publication
-  </a>
-</p>
-
-    
-
-  </div>
-</section>
-<!-- ================= END RESEARCH PUBLICATION SECTION ================= -->
-
-  
-<section id="video">
-  <h2>Video</h2>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/FJRIObJnih0?si=X2jK3990na8keD9b" title="Raj Shekhar Sharma YouTube" allowfullscreen></iframe>
-  </div>
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/bzLbLDdOyFo" title="YouTube video" allowfullscreen></iframe>
-</div>
-  <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/1lrMqGwUZS0" title="YouTube video" allowfullscreen></iframe>
-  </div>
-</section>
-  <section id="awards">
-  <h2>Award Moments</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 10px;">
-    
-    <img 
-      src="https://i.postimg.cc/KvXBnKkM/IMG-20250812-WA0036.jpg" 
-      alt="Raj receiving medal 1"
-      style="width: 280px; border: 2px solid #66fcf1; border-radius: 15px; 
-             box-shadow: 0 0 15px #00ffc8; display: block;" />
-
-    <img 
-      src="https://i.postimg.cc/xjHDs7C4/IMG-20250812-WA0035.jpg" 
-      alt="Raj receiving medal 2"
-      style="width: 280px; border: 2px solid #66fcf1; border-radius: 15px; 
-             box-shadow: 0 0 15px #00ffc8; display: block;" />
-<img
-  src=" https://i.postimg.cc/mgHCGYGB/IMG-20250820-WA0000.jpg"
-      alt="Raj receiving medal 1"
-      style="width: 280px; border: 2px solid #66fcf1; border-radius: 15px; 
-             box-shadow: 0 0 15px #00ffc8; display: block;" />
-    <img 
-      src="https://i.postimg.cc/50StNzC8/Untitled-3.jpg" 
-      alt="Raj with medal close-up"
-      style="width: 280px; border: 2px solid #66fcf1; border-radius: 15px; 
-             box-shadow: 0 0 15px #00ffc8; display: block;" />
-
-  </div>
-  </section>
-<section id="contact">
-  <h2>Contact</h2>
-  <form action="mailto: rvrt555@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-  <footer style="text-align:center; padding: 20px; background-color: #111; color: white; font-family: Arial, sans-serif;">
-  <p style="font-size: 18px; margin-bottom: 10px;">Connect with Me</p>
-  <div style="font-size: 24px;">
-    <a href="https://youtube.com/@brainybytes-so1iq?si=BxKkoULDKYxPXstf" target="_blank" style="color: white; margin: 0 10px;">
-      📺 YouTube
-    </a>
-    <a href="https://www.linkedin.com/in/raj-shekhar-sharma-79a503373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white; margin: 0 10px;">
-      💼 LinkedIn
-    </a>
-    <a href="https://www.instagram.com/rajs112k?igsh=ZDA2c3F2aTRlNHdn" target="_blank" style="color: white; margin: 0 10px;">
-      📸 Instagram
-    </a>
-    <a href="https://github.com/Rajxtech" target="_blank" style="color: white; margin: 0 10px;">
-      💻 GitHub
-    </a>
-  </div>
-  <p style="font-size: 14px; margin-top: 15px;">© 2025 Raj Shekhar Sharma | Built By me with dedication</p>
+    <p>© 2025 Raj Shekhar Sharma | Built By me with dedication</p>
   </footer>
-<script>
-// Starfield animation
-const starCount = 100;
-const starfield = document.getElementById('starfield');
-for(let i=0; i < starCount; i++) {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  const size = Math.random() * 2 + 1;
-  star.style.width = size + 'px';
-  star.style.height = size + 'px';
-  star.style.top = Math.random() * 100 + '%';
-  star.style.left = Math.random() * 100 + '%';
-  star.style.animationDelay = (Math.random() * 2) + 's';
-  star.style.animationDuration = (1 + Math.random() * 3) + 's';
-  starfield.appendChild(star);
-}
-</script>
 
+  <script>
+    const starCount = window.innerWidth < 768 ? 60 : 110;
+    const starfield = document.getElementById('starfield');
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      const size = Math.random() * 2 + 1;
+      star.className = 'star';
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 2.8}s`;
+      star.style.animationDuration = `${1.3 + Math.random() * 2.2}s`;
+      starfield.appendChild(star);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
