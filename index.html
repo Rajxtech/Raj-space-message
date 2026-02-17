@@ -58,13 +58,14 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
+      overflow-x: clip;
     }
 
     .hero {
-      min-height: 88vh;
+      min-height: min(88vh, 820px);
       display: grid;
       place-items: center;
-      padding: 3rem 0 2rem;
+      padding: clamp(2.25rem, 5vw, 4rem) 0 clamp(1.6rem, 3vw, 2.4rem);
     }
 
     .hero-card {
@@ -140,13 +141,15 @@
     .btn:hover { transform: translateY(-2px); }
 
     main section {
-      margin: 1rem 0 1.8rem;
+      margin: 0;
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 20px;
       padding: clamp(1rem, 2.8vw, 2rem);
       box-shadow: var(--shadow);
     }
+
+    main section + section { margin-top: clamp(2.5rem, 6vw, 4.6rem); }
 
     .grid {
       display: grid;
@@ -284,6 +287,7 @@
     .tracker-section {
       position: relative;
       overflow: hidden;
+      isolation: isolate;
       background:
         radial-gradient(circle at 15% 20%, rgba(11, 116, 255, 0.18), transparent 45%),
         radial-gradient(circle at 85% 0%, rgba(0, 255, 200, 0.16), transparent 40%),
@@ -462,11 +466,17 @@
     }
 
     @media (max-width: 760px) {
+      main section + section { margin-top: clamp(2.5rem, 10vw, 3.75rem); }
       .mission-grid { grid-template-columns: 1fr; }
 
-      .hero { min-height: 70vh; }
+      .hero { min-height: auto; }
       .timeline { padding-left: 1.2rem; }
       .timeline-item::before { left: -1.54rem; }
+      .btn { width: 100%; text-align: center; }
+      .cta-row .btn { max-width: 320px; }
+      .distance-shell::before,
+      .distance-shell::after,
+      .tracker-particle { animation: none; }
     }
   </style>
 </head>
@@ -723,8 +733,8 @@
     const missionMilesEl = document.getElementById('mission-miles');
     const missionKmEl = document.getElementById('mission-km');
 
-    const baseMiles = 3560334868839;
-    const baseKm = 5738494145156;
+    const baseMiles = 3_560_334_868_839;
+    const baseKm = 5_738_494_145_156;
     const stepKm = 1_000_000;
     const stepMiles = 1_000_000;
     const updateIntervalMs = 5000;
@@ -749,11 +759,11 @@
       animatedNodes.forEach((node) => {
         node.animate(
           [
-            { opacity: 0.78, transform: 'translateY(6px)' },
+            { opacity: 0.84, transform: 'translateY(4px)' },
             { opacity: 1, transform: 'translateY(0)' }
           ],
           {
-            duration: 700,
+            duration: 640,
             easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
             fill: 'both'
           }
@@ -770,40 +780,6 @@
 
     setDistanceText();
     setInterval(updateDistance, updateIntervalMs);
-    const launchDays = 221;
-    const secondsSinceLaunch = launchDays * 24 * 60 * 60;
-    const speedMilesPerSecond = baseMiles / secondsSinceLaunch;
-    const speedKmPerSecond = baseKm / secondsSinceLaunch;
-
-    let targetMiles = baseMiles;
-    let targetKm = baseKm;
-    let displayMiles = baseMiles;
-    let displayKm = baseKm;
-
-    const formatDistance = (value, unit) => `${Math.round(value).toLocaleString('en-US')} ${unit}`;
-
-    const pushSecondUpdate = () => {
-      targetMiles += speedMilesPerSecond;
-      targetKm += speedKmPerSecond;
-    };
-
-    const tickCounter = () => {
-      displayMiles += (targetMiles - displayMiles) * 0.16;
-      displayKm += (targetKm - displayKm) * 0.16;
-
-      const milesText = formatDistance(displayMiles, 'miles');
-      const kmText = formatDistance(displayKm, 'km');
-
-      if (distanceMilesEl) distanceMilesEl.textContent = milesText;
-      if (distanceKmEl) distanceKmEl.textContent = kmText;
-      if (missionMilesEl) missionMilesEl.textContent = milesText;
-      if (missionKmEl) missionKmEl.textContent = kmText;
-
-      requestAnimationFrame(tickCounter);
-    };
-
-    setInterval(pushSecondUpdate, 1000);
-    requestAnimationFrame(tickCounter);
 
   </script>
 </body>
